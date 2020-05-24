@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Battle JS</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="screen main-menu">
+        <div class="menu">
+            <h1 class="menu-title">Sea Battle</h1>
+            <h5 class="menu-version" id="game-version"></h5>
+
+            <div class="menu-buttons">
+                <button class="menu-buttons-item" id="button-menu-start-game">Start</button>
+                <button class="menu-buttons-item" id="button-menu-settings">Settings</button>
+                <button class="menu-buttons-item" id="button-menu-scoreboard">Scoreboard</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="screen start-menu hide">
+        <div class="header">
+            <h1 class="header-title">Sea Battle</h1>
+            <h5 class="header-version" id="game-version"></h5>
+        </div>
+        <div class="menu">
+            <p>Choose gamemode:</p>
+            <div class="menu-buttons">
+                <button class="menu-buttons-item" id="button-start-game-singleplayer">Singleplayer</button>
+                <button class="menu-buttons-item" id="button-start-game-multiplayer-local">Local Multiplayer</button>
+                <button class="menu-buttons-item" id="button-start-game-multiplayer">Multiplayer</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen settings-menu hide">
+
+    </div>
+
+    <div class="screen scoreboard-menu hide">
+
+    </div>
+    
+    <div class="screen game hide">
+
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
