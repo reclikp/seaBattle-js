@@ -6,6 +6,8 @@
     <title>Sea Battle JS</title>
 
     <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://kit.fontawesome.com/ab3eab1ff2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="screen main-menu">
@@ -15,14 +17,15 @@
 
             <div class="menu-buttons">
                 <button class="menu-buttons-item" id="button-menu-start-game">Start</button>
-                <button class="menu-buttons-item" id="button-menu-settings">Settings</button>
-                <button class="menu-buttons-item" id="button-menu-scoreboard">Scoreboard</button>
+                <button class="btn-inactive menu-buttons-item" id="button-menu-settings">Settings</button>
+                <button class="btn-inactive menu-buttons-item" id="button-menu-scoreboard">Scoreboard</button>
             </div>
         </div>
         
     </div>
 
     <div class="screen start-menu hide">
+        <i id="button-screen-back" class="screen-back-button fas fa-arrow-left"></i>
         <div class="header">
             <h1 class="header-title">Sea Battle</h1>
             <h5 class="header-version" id="game-version">ver</h5>
@@ -30,9 +33,9 @@
         <div class="menu">
             <p>Choose gamemode:</p>
             <div class="menu-buttons">
-                <button class="menu-buttons-item" id="button-start-game-singleplayer">Singleplayer</button>
+                <button class="btn-inactive menu-buttons-item" id="button-start-game-singleplayer">Singleplayer</button>
                 <button class="menu-buttons-item" id="button-start-game-multiplayer-local">Local Multiplayer</button>
-                <button class="menu-buttons-item" id="button-start-game-multiplayer">Multiplayer</button>
+                <button class="btn-inactive menu-buttons-item" id="button-start-game-multiplayer">Multiplayer</button>
             </div>
         </div>
     </div>
@@ -50,31 +53,48 @@
     </div>
 
     <div id="game-multiplayer-lan" class="screen game-multiplayer-lan hide">
+        <i id="button-screen-back" class="screen-back-button fas fa-arrow-left"></i>
         <div class="header">
             <h1 class="header-title">Sea Battle</h1>
             <h5 class="header-version" id="game-version">ver</h5>
         </div>
 
-        <div id="play-area" class="play-area">
+        <div class="nicknames-prompt" id="nicknames-prompt">
+            <div class="menu">
+                <p>Set your nicknames:</p>
+                <form class="prompt-form">
+                    <input id="first-player-nickname" type="text" placeholder="First player" required>
+                    <input id="second-player-nickname" type="text" placeholder="Second player" required>
+
+                    <div class="menu-buttons">
+                        <button type="submit" class="btn-inactive menu-buttons-item" id="button-set-nicknames">Set Game</button>
+                    </div>
+                </form>      
+            </div>
+        </div>
+
+        <div id="play-area" class="play-area hide">
             <div class="game-info">
                 <p class="game-tip"></p>
-                <h5>Player:</h5>
+                <h5>Player: Test value</h5>
 
+                <div class="game-info-ships">
+                    <div class="row">
+                        <img class="game-info-ship" src="img/ship4.png" alt="">
+                        <p>x1</p>
+                    </div>
+                    <div class="row">
+                        <img class="game-info-ship" src="img/ship4.png" alt="">
+                        <p>x2</p>
+                    </div>
+                    <div class="row">
+                        <img class="game-info-ship" src="img/ship4.png" alt="">
+                        <p>x2</p>
+                    </div>
+                </div>
             </div>
             <canvas id="game-grid"></canvas>
         </div>
-
-        <!--
-        <div id="firstPlayer" class="firstPlayer">
-            <canvas id="first-player"></canvas>
-            <canvas id="first-player-enemy"></canvas>
-        </div>
-
-        <div id="secondPlayer" class="secondPlayer hide">
-            <canvas id="second-player"></canvas>
-            <canvas id="second-player-enemy"></canvas>
-        </div>
-        -->
     </div>
 
     <div class="screen multiplayer-game hide">

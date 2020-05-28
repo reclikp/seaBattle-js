@@ -27,8 +27,13 @@ body{
     height: 100vh;
 }
 
-.main-menu{
-    
+.screen-back-button{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 200;
 }
 
 .start-menu{
@@ -94,6 +99,7 @@ body{
     margin-top: 2rem;
 }
 
+
 .menu-buttons-item{
     color: #ffffff;
     font-weight: bold;
@@ -107,19 +113,37 @@ body{
 
     cursor: pointer;
     transition: background .5s ease, color .5s ease;
+
+    margin-right: .5rem;
 }
+
+
 
 .menu-buttons-item:hover{
     background: #ffffff;
     color: #3dc1d3;
 }
 
-.menu-buttons-item:focus{
-    outline: 0;
-}
+
 
 h1,h2,h3,h4,h5{
     width: fit-content;
+}
+
+.nicknames-prompt .menu-buttons{
+    justify-content: center;
+}
+
+.prompt-form{
+    margin-top: 2rem;
+}
+
+.prompt-form input{
+    background: none;
+    border: 2px solid #ffffff;
+    border-radius: 40px;
+    padding: .5rem;
+    color: #ffffff;
 }
 
 .play-area{
@@ -135,13 +159,46 @@ h1,h2,h3,h4,h5{
     flex-direction: column;
     justify-content: center;
 
+    position: absolute;
+    left: 0;
 }
 
 .game-tip{
     font-size: .9rem;
-   font-weight: 300;
+    font-weight: 300;
+}
+
+.game-info-ship{
+    height: auto;
+}
+
+.game-info-ships .row{
+    display: flex;
+    align-items: center;
+
+    margin-top: 1.5rem;
+}
+
+*:focus{
+    outline: 0;
+}
+
+input::placeholder{
+    color: #ffffff;
 }
 
 .hide{
     display: none;
 }
+
+.btn-inactive{
+    border: 2px solid #808080;
+    color: gray;
+    cursor: auto;
+}
+
+.btn-inactive:hover{
+    background: none;
+    color: #808080;
+}
+

@@ -6,28 +6,43 @@ const boardCols = 10;
 var canvasSize = 500;
 var areaSize = canvasSize / boardRows;
 
+var latestScreen = ".main-menu";
+var activeScreen = ".main-menu";
 
-// Buttons Definitions
+
+/* Buttons Definitions */
 const btnStart = document.querySelector("#button-menu-start-game");
 const btnSettings = document.querySelector("#button-menu-settings");
 const btnScoreboard = document.querySelector("#button-menu-scoreboard");
+const btnScreenBack = document.querySelectorAll('#button-screen-back');
+
+// Lan Multiplayer
+const btnStartLan = document.querySelector("#button-start-game-multiplayer-local");
+const btnSetNicknames = document.querySelector("#button-set-nicknames");
 
 
 
-// Buttons listeners
+/* Buttons Listeners */
 btnStart.addEventListener("click", startGame);
+btnStartLan.addEventListener("click", startGame_LanMultiplayer);
+btnSetNicknames.addEventListener("click", validateNicknames);
 
-
-// Objects
-function Player(parent, selector){
-    this.nickname;
-    //this.id = selector;
-    // this.canvas = this.parent.querySelector(this.id);
-    this.board = getInitialBoard("");
-    this.enemyBoard = getInitialBoard("");
-
+for(let element of btnScreenBack){
+    element.addEventListener("click", screenBack);
 }
 
+
+/* Objects */
+function Player(parent, selector){
+    this.nickname;
+    this.board = getInitialBoard("");
+    this.enemyBoard = getInitialBoard("");
+}
+
+
+/*           */
+/* Functions */
+/*            */
 
 // Basic onload app initialization
 function initialization(){
@@ -35,16 +50,14 @@ function initialization(){
         i.innerHTML = "ver " + gameVersion;
     }
 
-    //TEMP
+    /* Temp
     document.querySelector(".main-menu").classList.toggle("hide");
     document.querySelector(".game-multiplayer-lan").classList.remove("hide");
     startGame_LanMultiplayer();
+    */
 
+   //startGame_LanMultiplayer()
 }
-
-//                       //
-// Rest of the functions //
-//                       //
 
 
 function getInitialBoard(value){
@@ -89,28 +102,53 @@ function drawPlayArea(parentNode){
 }
 
 
+function screenBack(){
+    switch(activeScreen){
+        case ".start-menu":
+            document.querySelector(activeScreen).classList.toggle("hide");
+            document.querySelector(".main-menu").classList.remove("hide");
+        break;
+
+        case ".game-multiplayer-lan":
+            document.querySelector(activeScreen).classList.toggle("hide");
+            document.querySelector(latestScreen).classList.remove("hide");
+        break;
+    }
+
+    activeScreen = latestScreen;
+}
+
+
 // Called on 'play' button, shows choose gamemode menu
 function startGame(){
-    document.querySelector(".main-menu").classList.toggle("hide");
-    document.querySelector(".start-menu").classList.remove("hide");
-
+    latestScreen = ".main-menu";
+    activeScreen = ".start-menu";
+    document.querySelector(latestScreen).classList.toggle("hide");
+    document.querySelector(activeScreen).classList.remove("hide");
+    
+    //startGame_LanMultiplayer()
 }
 
 
 // Called on 'Local Multiplayer' button, shows game screen
 function startGame_LanMultiplayer(){
+    latestScreen = ".start-menu";
+    activeScreen = ".game-multiplayer-lan";
+    document.querySelector(latestScreen).classList.toggle("hide");
+    document.querySelector(activeScreen).classList.remove("hide");
+
     const parentNode = document.querySelector("#game-multiplayer-lan");
     const firstPlayer = new Player();
     const secondPlayer = new Player();
-
     const playArea = drawPlayArea(parentNode);
 
-    //var firstPlayer_canvas = parent.querySelector("#first-player");
-    //var secondPlayerCanvas = parent.querySelector("#second-player");
-
-    
 }
 
+
+function validateNicknames(){
+ 
+    
+}
 
 
 initialization();
